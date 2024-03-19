@@ -1,0 +1,28 @@
+.container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav{
+    height: 500px;
+    width: 150px;
+    background-color:rgb(10, 10, 104);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    border-radius: 10px;
+  }
+  
+  .nav a {
+    text-align: center;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+  }
+  
+  h4{
+    color: white;
+   padding: 10px;
+  }
+ 
