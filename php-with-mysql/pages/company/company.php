@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to My Website</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link href="../assets/style.css" rel="stylesheet">
+    <link href="../../assets/style.css" rel="stylesheet">
 </head>
 
 <body class="bg-gray-100">
-    <?php include '../shared/header.php'; ?>
+    <?php include '../../shared/header.php'; ?>
     <div class="flex">
-        <?php include '../shared/side-menu.php'; ?>
+        <?php include '../../shared/side-menu.php'; ?>
         <div class="container mx-auto p-4">
             <div class="flex justify-center py-4">
                 <h1 class="text-bold text-center">Company</h1>
@@ -36,6 +36,7 @@
                     </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
+                    <?php include './view/fetchCompany.php'; ?>
                 </tbody>
             </table>
             <div class="flex justify-end mt-4">
@@ -84,7 +85,6 @@
             </form>
         </div>
     </div>
-    <?php include '../shared/delete-model.php'; ?>
     <script src="../js/companies.js"></script>
 </body>
 

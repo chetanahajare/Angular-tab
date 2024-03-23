@@ -1,0 +1,35 @@
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$database = "mediafind";
+$conn = mysqli_connect($servername, $username, $password, $database);
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+mysqli_set_charset($conn, "utf8mb4");
+
+if ($conn) {
+    $sql = "SELECT * FROM city";
+    $result = mysqli_query($conn, $sql);
+
+    if ($result && mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            echo "<tr>";
+            echo "<td class='px-6 py-4 whitespace-nowrap'>" . $row['city_name'] . "</td>";
+            echo "<td class='px-6 py-4 whitespace-nowrap'>" . $row['state_name'] . "</td>";
+            echo "<td class='px-6 py-4 whitespace-nowrap'>" . $row['image_url'] . "</td>";
+            echo "<td class='px-6 py-4 whitespace-nowrap'>";
+            echo "<button class='bg-blue-500 text-white px-4 py-2 rounded-md editBtn' data-city-id='{$row['id']}' data-city-name='{$row['city_name']}' data-state-name='{$row['state_name']}' data-image-url='{$row['image_url']}'>Edit</button> ";
+            echo "<button class='bg-red-500 text-white px-4 py-2 rounded-md deleteBtn' data-city-id='{$row['id']}'>Delete</button>";
+            echo "</td>";
+            echo "</tr>";
+        }
+    } else {
+        echo "<tr><td colspan='4' class='text-center'>No cities found</td></tr>";
+    }
+
+    mysqli_close($conn);
+} else {
+    die("Connection failed: " . mysqli_connect_error());
+}

@@ -9,9 +9,9 @@
 </head>
 
 <body class="bg-gray-100">
-    <?php include '../shared/header.php'; ?>
+    <?php include '../../shared/header.php'; ?>
     <div class="flex">
-        <?php include '../shared/side-menu.php'; ?>
+        <?php include '../../shared/side-menu.php'; ?>
         <div class="container mx-auto p-4">
             <div class="flex justify-center py-4">
                 <h1 class="text-bold text-center">User Timer Analysis</h1>
@@ -56,6 +56,7 @@
                             </tr>
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
+                            <?php include './view/fetchAllSessionUserTimeAnalysis.php'; ?>
                         </tbody>
                     </table>
                     <div class="flex justify-end mt-4">
@@ -106,6 +107,7 @@
                             </tr>
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
+                            <?php include './view/fetchUserTimeAnalysis.php'; ?>
                         </tbody>
                     </table>
                     <div class="flex justify-end mt-4">

@@ -9,21 +9,46 @@
 </head>
 
 <body class="bg-gray-100">
-    <?php include '../shared/header.php'; ?>
+    <?php include '../../shared/header.php'; ?>
     <div class="flex">
-        <?php include '../shared/side-menu.php'; ?>
+        <?php include '../../shared/side-menu.php'; ?>
         <div class="container mx-auto p-4">
             <div class="flex justify-center py-4">
-                <h1 class="text-bold text-center">Feedback</h1>
+                <h1 class="text-bold text-center">Distributors</h1>
+            </div>
+            <div class="flex justify-between items-center mb-4">
+                <div></div>
+                <div class="flex items-center gap-2">
+                    <input type="text" placeholder="Search State" class="border-gray-300 border rounded-md px-4 py-2 mr-2">
+                    <button class="bg-blue-500 text-white px-4 py-2 rounded-md">Add State</button>
+                </div>
             </div>
             <table class="min-w-full divide-y divide-gray-200">
                 <thead class="bg-gray-50">
                     <tr>
                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Feedback
+                            Name
                         </th>
                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Username
+                            company
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Email
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Phone No 1.
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Phone No 2.
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            City
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Province
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Address
                         </th>
                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                             Action
@@ -31,6 +56,7 @@
                     </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
+                    <?php include './view/fetchDistributors.php'; ?>
                 </tbody>
             </table>
             <div class="flex justify-end mt-4">

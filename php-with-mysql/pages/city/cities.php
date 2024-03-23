@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to My Website</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link href="../assets/style.css" rel="stylesheet">
+    <link href="../../assets/style.css" rel="stylesheet">
 </head>
 
 <body class="bg-gray-100">
-    <?php include '../shared/header.php'; ?>
+    <?php include '../../shared/header.php'; ?>
     <div class="flex">
-        <?php include '../shared/side-menu.php'; ?>
+        <?php include '../../shared/side-menu.php'; ?>
         <div class="container mx-auto p-4">
             <div class="flex justify-center py-4">
                 <h1 class="text-bold text-center">Cities</h1>
@@ -42,6 +42,7 @@
                     </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
+                    <?php include '../city/view/fetch_cities.php'; ?>
                 </tbody>
             </table>
             <div class="flex justify-end mt-4">
@@ -64,7 +65,7 @@
                 <h2>Add New City</h2>
                 <span class="close">&times;</span>
             </div>
-            <form method="POST" action="save_city.php">
+            <form method="POST" action="./view/save_city.php">
                 <div class="mb-4">
                     <label for="cityName" class="block text-gray-700 text-sm font-bold mb-2">City Name:</label>
                     <input type="text" id="cityName" name="cityName" class="border-gray-300 border rounded-md px-4 py-2" value="<?php echo isset($_POST['cityName']) ? $_POST['cityName'] : ''; ?>">
@@ -87,7 +88,7 @@
                 <h2>Edit City</h2>
                 <span class="close">&times;</span>
             </div>
-            <form method="POST" action="edit_city.php">
+            <form method="POST" action="./view/edit_city.php">
                 <input type="hidden" id="editCityId" name="cityId" value="">
                 <div class="mb-4">
                     <label for="editCityName" class="block text-gray-700 text-sm font-bold mb-2">City Name:</label>
@@ -105,8 +106,9 @@
             </form>
         </div>
     </div>
-    <?php include '../shared/delete-model.php'; ?>
-    <script src="../js/city.js"></script>
+    <div id="deleteModal" class="modal">
+    </div>
+    <script src="../../js/city.js"></script>
 </body>
 
 </html>

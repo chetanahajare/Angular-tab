@@ -6,24 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to My Website</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="../../assets/style.css" rel="stylesheet">
 </head>
 
 <body class="bg-gray-100">
-    <?php include '../shared/header.php'; ?>
+    <?php include '../../shared/header.php'; ?>
     <div class="flex">
-        <?php include '../shared/side-menu.php'; ?>
+        <?php include '../../shared/side-menu.php'; ?>
         <div class="container mx-auto p-4">
             <div class="flex justify-center py-4">
-                <h1 class="text-bold text-center">Notification</h1>
+                <h1 class="text-bold text-center">Feedback</h1>
             </div>
             <table class="min-w-full divide-y divide-gray-200">
                 <thead class="bg-gray-50">
                     <tr>
                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Text
+                            Feedback
                         </th>
                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            City
+                            Username
                         </th>
                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                             Action
@@ -31,6 +32,7 @@
                     </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
+                    <?php include './view/fetchFeedback.php'; ?>
                 </tbody>
             </table>
             <div class="flex justify-end mt-4">
@@ -43,6 +45,22 @@
                         <li><a href="#" class="block hover:text-blue-600 px-3 py-2">Next</a></li>
                     </ul>
                 </nav>
+            </div>
+        </div>
+    </div>
+    <div id="deleteModal" class="modal">
+        <div class="modal-content" style="width: 400px;">
+            <div class="flex justify-between">
+                <h2>Delete Confirmation</h2>
+                <span class="close">&times;</span>
+            </div>
+            <p>Are you sure you want to delete this item?</p>
+            <div class="flex justify-end mt-4">
+                <form id="deleteForm" method="POST" action="./view/delete_city.php">
+                    <input type="hidden" id="deleteCityId" name="cityId" value="">
+                    <button id="confirmDeleteBtn" class="bg-red-500 text-white px-4 py-2 rounded-md mr-2">Confirm</button>
+                    <button id="cancelDeleteBtn" class="bg-gray-300 text-gray-700 px-4 py-2 rounded-md">Cancel</button>
+                </form>
             </div>
         </div>
     </div>
