@@ -36,7 +36,7 @@
                     </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
-                    <?php include './view/fetchCompany.php'; ?>
+                    <?php include './view/fetch_company.php'; ?>
                 </tbody>
             </table>
             <div class="flex justify-end mt-4">
@@ -53,13 +53,13 @@
         </div>
     </div>
 
-    <div id="addCompanyModal" class="modal">
+    <div id="myModal" class="modal">
         <div class="modal-content" style="width: 409px;">
             <div class="flex justify-between">
                 <h2>Add New Company</h2>
                 <span class="close">&times;</span>
             </div>
-            <form id="addCompanyForm" method="POST" action="add_company.php">
+            <form id="addCompanyForm" method="POST" action="./view/save_compnay.php">
                 <div class="mb-4">
                     <label for="companyName" class="block text-gray-700 text-sm font-bold mb-2">Company Name:</label>
                     <input type="text" id="companyName" name="companyName" class="border-gray-300 border rounded-md px-4 py-2" value="">
@@ -68,7 +68,21 @@
             </form>
         </div>
     </div>
-
+    <div id="myModal" class="modal">
+        <div class="modal-content" style="width: 409px;">
+            <div class="flex justify-between">
+                <h2>Add New Company</h2>
+                <span class="close">&times;</span>
+            </div>
+            <form method="POST" action="./view/save_compnay.php">
+                <div class="mb-4">
+                    <label for="cityName" class="block text-gray-700 text-sm font-bold mb-2">Company Name:</label>
+                    <input type="text" id="companyName" name="cityName" class="border-gray-300 border rounded-md px-4 py-2" value="<?php echo isset($_POST['cityName']) ? $_POST['cityName'] : ''; ?>">
+                </div>
+                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md">Save</button>
+            </form>
+        </div>
+    </div>
     <div id="editCompanyModal" class="modal">
         <div class="modal-content" style="width: 409px;">
             <div class="flex justify-between">
@@ -85,7 +99,7 @@
             </form>
         </div>
     </div>
-    <script src="../js/companies.js"></script>
+    <script src="../../js/company.js"></script>
 </body>
 
 </html>

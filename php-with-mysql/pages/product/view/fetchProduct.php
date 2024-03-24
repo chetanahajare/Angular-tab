@@ -10,13 +10,19 @@ if (!$conn) {
 mysqli_set_charset($conn, "utf8mb4");
 
 if ($conn) {
-    $sql = "SELECT * FROM company ";
+    $sql = "SELECT * FROM products";
     $result = mysqli_query($conn, $sql);
 
     if ($result && mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_assoc($result)) {
             echo "<tr>";
-            echo "<td class='px-6 py-4 whitespace-nowrap'>" . $row['name'] . "</td>";
+            echo "<td class='px-6 py-4 whitespace-nowrap'>" . $row['ProductName'] . "</td>";
+            echo "<td class='px-6 py-4 whitespace-nowrap'>" . $row['Company'] . "</td>";
+            echo "<td class='px-6 py-4 whitespace-nowrap'>" . $row['SideEffects'] . "</td>";
+            echo "<td class='px-6 py-4 whitespace-nowrap'>" . $row['MRP'] . "</td>";
+            echo "<td class='px-6 py-4 whitespace-nowrap'>" . $row['Composition'] . "</td>";
+            echo "<td class='px-6 py-4 whitespace-nowrap'>" . $row['Package'] . "</td>";
+            echo "<td class='px-6 py-4 whitespace-nowrap'>" . $row['Substitute'] . "</td>";
             echo "<td class='px-6 py-4 whitespace-nowrap'>";
             echo "<button class='bg-red-500 text-white px-4 py-2 rounded-md deleteBtn' data-id='{$row['id']}' onclick=\"openDeleteModal('{$row['id']}')\">Delete</button>";
             echo "</td>";

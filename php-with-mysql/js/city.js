@@ -1,11 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const urlParams = new URLSearchParams(window.location.search);
-    const successMessage = urlParams.get('success');
-
-    if (successMessage) {
-        alert(successMessage);
-    }
-
     var addModal = document.getElementById("myModal");
     var addBtn = document.getElementById("openModal");
     var addSpan = document.getElementsByClassName("close")[0];
