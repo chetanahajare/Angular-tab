@@ -56,18 +56,48 @@
             </form>
         </div>
     </div>
-
+    <div id="editModal" class="modal">
+        <div class="modal-content" style="width: 409px;">
+            <div class="flex justify-between">
+                <h2>Edit Company</h2>
+                <span class="close" onclick="closeEditModal()">&times;</span>
+            </div>
+            <form id="editForm" method="POST" action="update_states .php">
+                <input type="hidden" id="editStateId" name="stateId">
+                <div class="mb-4">
+                    <label for="editStateName" class="block text-gray-700 text-sm font-bold mb-2">State Name:</label>
+                    <input type="text" id="editStateName" name="stateName" class="border-gray-300 border rounded-md px-4 py-2">
+                </div>
+                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md">Save</button>
+            </form>
+        </div>
+    </div>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             var addModal = document.getElementById("myModal");
             var addBtn = document.getElementById("openModal");
             var addSpan = document.querySelector("#myModal .close");
+            var editModal = document.getElementById("editModal");
+            var editBtns = document.querySelectorAll(".editBtn");
+            var editSpan = document.querySelector("#editModal .close");
             addBtn.onclick = function() {
                 addModal.style.display = "block";
             }
 
             addSpan.onclick = function() {
                 addModal.style.display = "none";
+            }
+            editBtns.forEach(function(editBtn) {
+                editBtn.onclick = function() {
+                    var companyId = editBtn.getAttribute("data-state-id");
+                    var companyName = editBtn.getAttribute("data-state-name");
+                    document.getElementById("editStateId").value = companyId;
+                    document.getElementById("editStateName").value = companyName;
+                    editModal.style.display = "block";
+                }
+            });
+            editSpan.onclick = function() {
+                editModal.style.display = "none";
             }
         });
     </script>

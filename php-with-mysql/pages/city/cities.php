@@ -71,12 +71,38 @@
             </form>
         </div>
     </div>
-
+    <div id="editModal" class="modal">
+        <div class="modal-content" style="width: 409px;">
+            <div class="flex justify-between">
+                <h2>Edit City</h2>
+                <span class="close" onclick="closeEditModal()">&times;</span>
+            </div>
+            <form id="editForm" method="POST" action="update_city.php">
+                <input type="hidden" id="editCityId" name="cityId">
+                <div class="mb-4">
+                    <label for="editCityName" class="block text-gray-700 text-sm font-bold mb-2">City Name:</label>
+                    <input type="text" id="editCityName" name="cityName" class="border-gray-300 border rounded-md px-4 py-2">
+                </div>
+                <div class="mb-4">
+                    <label for="editStateName" class="block text-gray-700 text-sm font-bold mb-2">State Name:</label>
+                    <input type="text" id="editStateName" name="stateName" class="border-gray-300 border rounded-md px-4 py-2">
+                </div>
+                <div class="mb-4">
+                    <label for="editImageUrl" class="block text-gray-700 text-sm font-bold mb-2">Image Url:</label>
+                    <input type="text" id="editImageUrl" name="imageUrl" class="border-gray-300 border rounded-md px-4 py-2">
+                </div>
+                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md">Save</button>
+            </form>
+        </div>
+    </div>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             var addModal = document.getElementById("myModal");
             var addBtn = document.getElementById("openModal");
             var addSpan = document.querySelector("#myModal .close");
+            var editModal = document.getElementById("editModal");
+            var editBtns = document.querySelectorAll(".editBtn");
+            var editSpan = document.querySelector("#editModal .close");
 
             addBtn.onclick = function() {
                 addModal.style.display = "block";
@@ -84,6 +110,22 @@
 
             addSpan.onclick = function() {
                 addModal.style.display = "none";
+            }
+            editBtns.forEach(function(editBtn) {
+                editBtn.onclick = function() {
+                    var cityId = editBtn.getAttribute("data-city-id");
+                    var cityName = editBtn.getAttribute("data-city-name");
+                    var stateName = editBtn.getAttribute("data-state-name");
+                    var imageUrl = editBtn.getAttribute("data-image-url");
+                    document.getElementById("editCityId").value = cityId;
+                    document.getElementById("editCityName").value = cityName;
+                    document.getElementById("editStateName").value = stateName;
+                    document.getElementById("editImageUrl").value = imageUrl;
+                    editModal.style.display = "block";
+                }
+            });
+            editSpan.onclick = function() {
+                editModal.style.display = "none";
             }
         });
     </script>

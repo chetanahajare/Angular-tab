@@ -41,7 +41,6 @@
             </table>
         </div>
     </div>
-
     <div id="myModal" class="modal">
         <div class="modal-content" style="width: 409px;">
             <div class="flex justify-between">
@@ -57,18 +56,46 @@
             </form>
         </div>
     </div>
-
+    <div id="editModal" class="modal">
+        <div class="modal-content" style="width: 409px;">
+            <div class="flex justify-between">
+                <h2>Edit Company</h2>
+                <span class="close" onclick="closeEditModal()">&times;</span>
+            </div>
+            <form id="editForm" method="POST" action="update_company.php">
+                <input type="hidden" id="editCompanyId" name="companyId">
+                <div class="mb-4">
+                    <label for="editCompanyName" class="block text-gray-700 text-sm font-bold mb-2">Company Name:</label>
+                    <input type="text" id="editCompanyName" name="companyName" class="border-gray-300 border rounded-md px-4 py-2">
+                </div>
+                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md">Save</button>
+            </form>
+        </div>
+    </div>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             var addModal = document.getElementById("myModal");
             var addBtn = document.getElementById("openModal");
             var addSpan = document.querySelector("#myModal .close");
+
             addBtn.onclick = function() {
                 addModal.style.display = "block";
             }
 
             addSpan.onclick = function() {
                 addModal.style.display = "none";
+            }
+            editBtns.forEach(function(editBtn) {
+                editBtn.onclick = function() {
+                    var companyId = editBtn.getAttribute("data-company-id");
+                    var companyName = editBtn.getAttribute("data-company-name");
+                    document.getElementById("editCompanyId").value = companyId;
+                    document.getElementById("editCompanyName").value = companyName;
+                    editModal.style.display = "block";
+                }
+            });
+            editSpan.onclick = function() {
+                editModal.style.display = "none";
             }
         });
     </script>

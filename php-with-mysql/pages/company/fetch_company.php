@@ -16,9 +16,9 @@ if ($conn) {
     if ($result && mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_assoc($result)) {
             echo "<tr>";
-            echo "<td class='px-6 py-4 whitespace-nowrap'>" . $row['name'] . "</td>";
+            echo "<td class='px-6 py-4 whitespace-nowrap'>" . $row['companyName'] . "</td>";
             echo "<td class='px-6 py-4 whitespace-nowrap'>";
-            echo "<button class='bg-blue-500 text-white px-4 py-2 rounded-md editBtn' data-city-id='{$row['id']}' data-name='{$row['name']}'>Edit</button> ";
+            echo "<button class='bg-blue-500 text-white px-4 py-2 rounded-md editBtn' data-company-id='{$row['id']}' data-company-name='{$row['companyName']}'>Edit</button> ";
             echo "<button class='bg-red-500 text-white px-4 py-2 rounded-md deleteBtn' data-id='{$row['id']}'>Delete</button>";
             echo "</td>";
             echo "</tr>";

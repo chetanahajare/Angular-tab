@@ -1,6 +1,6 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    include '../../../db/db_connection.php';
+    include '../../db/db_connection.php';
 
     if (isset($_POST['cityId'], $_POST['cityName'], $_POST['stateName'], $_POST['imageUrl'])) {
         $cityId = $_POST['cityId'];
