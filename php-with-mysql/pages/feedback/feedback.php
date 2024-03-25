@@ -17,24 +17,7 @@
             <div class="flex justify-center py-4">
                 <h1 class="text-bold text-center">Feedback</h1>
             </div>
-            <table class="min-w-full divide-y divide-gray-200">
-                <thead class="bg-gray-50">
-                    <tr>
-                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Feedback
-                        </th>
-                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Username
-                        </th>
-                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Action
-                        </th>
-                    </tr>
-                </thead>
-                <tbody class="bg-white divide-y divide-gray-200">
-                    <?php include 'fetch_feedback.php'; ?>
-                </tbody>
-            </table>
+            <?php include 'fetch_feedback.php'; ?>
         </div>
     </div>
     <div id="deleteModal" class="modal">
@@ -54,28 +37,30 @@
         </div>
     </div>
     <script>
-        var deleteBtns = document.querySelectorAll(".deleteBtn");
-        var deleteModal = document.getElementById("deleteModal");
-        var deleteSpan = document.querySelector("#deleteModal .close");
-        deleteBtns.forEach(function(deleteBtn) {
-            deleteBtn.onclick = function() {
-                var cityId = deleteBtn.getAttribute("data-delete-id");
-                confirmDelete(cityId);
+        document.addEventListener("DOMContentLoaded", function() {
+            var deleteBtns = document.querySelectorAll(".deleteBtn");
+            var deleteModal = document.getElementById("deleteModal");
+            var deleteSpan = document.querySelector("#deleteModal .close");
+            deleteBtns.forEach(function(deleteBtn) {
+                deleteBtn.onclick = function() {
+                    var cityId = deleteBtn.getAttribute("data-delete-id");
+                    confirmDelete(cityId);
+                }
+            });
+
+            function closeDeleteModal() {
+                deleteModal.style.display = "none";
             }
-        });
 
-        function closeDeleteModal() {
-            deleteModal.style.display = "none";
-        }
+            function confirmDelete(cityId) {
+                document.getElementById("deleteId").value = cityId;
+                deleteModal.style.display = "block";
+            }
 
-        function confirmDelete(cityId) {
-            document.getElementById("deleteId").value = cityId;
-            deleteModal.style.display = "block";
-        }
-
-        deleteSpan.onclick = function() {
-            closeDeleteModal();
-        }
+            deleteSpan.onclick = function() {
+                closeDeleteModal();
+            }
+        })
     </script>
 </body>
 

@@ -8,16 +8,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $stmt->bind_param("i", $deleteId);
 
         if ($stmt->execute()) {
-            header("Location: /pages/states/states.php?success=Company deleted successfully");
+            header("Location: /pages/states/states.php?success=States deleted successfully");
             exit();
         } else {
-            header("Location: error.php?error=" . urlencode("Error deleting company: " . $stmt->error));
+            header("Location: error.php?error=" . urlencode("Error deleting States: " . $stmt->error));
             exit();
         }
         $stmt->close();
         $conn->close();
     } else {
-        header("Location: error.php?error=Company ID is missing in the POST data");
+        header("Location: error.php?error=States ID is missing in the POST data");
         exit();
     }
 } else {

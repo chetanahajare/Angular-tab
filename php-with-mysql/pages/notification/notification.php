@@ -24,24 +24,7 @@
                     <button id="openModal" class="bg-blue-500 text-white px-4 py-2 rounded-md">Add Notification</button>
                 </div>
             </div>
-            <table class="min-w-full divide-y divide-gray-200">
-                <thead class="bg-gray-50">
-                    <tr>
-                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Text
-                        </th>
-                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            City
-                        </th>
-                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Action
-                        </th>
-                    </tr>
-                </thead>
-                <tbody class="bg-white divide-y divide-gray-200">
-                    <?php include 'fetch_notifcation.php'; ?>
-                </tbody>
-            </table>
+            <?php include 'fetch_notifcation.php'; ?>
         </div>
     </div>
     <div id="myModal" class="modal">

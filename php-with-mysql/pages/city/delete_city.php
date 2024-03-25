@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("i", $deleteId);
         if ($stmt->execute()) {
-            header("Location: /pages/city/cities.php?success=City deleted successfully");
+            header("Location: /pages/city/city.php?success=City deleted successfully");
             exit();
         } else {
             header("Location: error.php?error=" . urlencode("Error deleting city: " . $stmt->error));

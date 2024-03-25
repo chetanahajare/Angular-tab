@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->bind_param("sssi", $cityName, $stateName, $imageUrl, $cityId);
         if ($stmt->execute()) {
             error_log("City updated successfully. City ID: $cityId");
-            header("Location:/pages/city/cities.php?success=City updated successfully");
+            header("Location:/pages/city/city.php?success=City updated successfully");
             exit();
         } else {
             error_log("Error updating city: " . $conn->error);

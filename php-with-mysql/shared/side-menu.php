@@ -3,7 +3,7 @@
         <h2 class="text-lg font-bold mb-4">Menu</h2>
         <nav>
             <ul class="space-y-2">
-                <li><a href="/pages/city/cities.php" class="block hover:text-gray-300">Cities</a></li>
+                <li><a href="/pages/city/city.php" class="block hover:text-gray-300">Cities</a></li>
                 <li><a href="/pages/timer/timer.php" class="block hover:text-gray-300">Timer</a></li>
                 <li><a href="/pages/company/company.php" class="block hover:text-gray-300">Company</a></li>
                 <li><a href="/pages/states/states.php" class="block hover:text-gray-300">States</a></li>

@@ -24,21 +24,7 @@
                     <button id="openModal" class="bg-blue-500 text-white px-4 py-2 rounded-md">Add Company</button>
                 </div>
             </div>
-            <table class="min-w-full divide-y divide-gray-200">
-                <thead class="bg-gray-50">
-                    <tr>
-                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Company Name
-                        </th>
-                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Action
-                        </th>
-                    </tr>
-                </thead>
-                <tbody class="bg-white divide-y divide-gray-200">
-                    <?php include 'fetch_company.php'; ?>
-                </tbody>
-            </table>
+            <?php include 'fetch_company.php'; ?>
         </div>
     </div>
     <div id="myModal" class="modal">
@@ -90,22 +76,9 @@
     </div>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            var addModal = document.getElementById("myModal");
-            var addBtn = document.getElementById("openModal");
-            var addSpan = document.querySelector("#myModal .close");
             var editModal = document.getElementById("editModal");
             var editBtns = document.querySelectorAll(".editBtn");
             var editSpan = document.querySelector("#editModal .close");
-            var deleteBtns = document.querySelectorAll(".deleteBtn");
-            var deleteModal = document.getElementById("deleteModal");
-            var deleteSpan = document.querySelector("#deleteModal .close");
-            addBtn.onclick = function() {
-                addModal.style.display = "block";
-            }
-
-            addSpan.onclick = function() {
-                addModal.style.display = "none";
-            }
             editBtns.forEach(function(editBtn) {
                 editBtn.onclick = function() {
                     var companyId = editBtn.getAttribute("data-company-id");
@@ -118,28 +91,10 @@
             editSpan.onclick = function() {
                 editModal.style.display = "none";
             }
-            deleteBtns.forEach(function(deleteBtn) {
-                deleteBtn.onclick = function() {
-                    var cityId = deleteBtn.getAttribute("data-delete-id");
-                    confirmDelete(cityId);
-                }
-            });
-
-            function closeDeleteModal() {
-                deleteModal.style.display = "none";
-            }
-
-            function confirmDelete(cityId) {
-                document.getElementById("deleteId").value = cityId;
-                deleteModal.style.display = "block";
-            }
-
-            deleteSpan.onclick = function() {
-                closeDeleteModal();
-            }
         });
     </script>
-
+    <script src='../../assets/js/addData.js'></script>
+    <script src='../../assets/js/deleteData.js'></script>
 </body>
 
 </html>

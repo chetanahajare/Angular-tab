@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->bind_param("sss", $cityName, $stateName, $imageUrl);
 
         if ($stmt->execute()) {
-            header("Location: /pages/city/cities.php?success=City added successfully");
+            header("Location: /pages/city/city.php?success=City added successfully");
             exit();
         } else {
             header("Location: /pages/city/cities.php?error=Error adding city: " . $conn->error);
