@@ -19,7 +19,7 @@ if ($conn) {
             echo "<td class='px-6 py-4 whitespace-nowrap'>" . $row['stateName'] . "</td>";
             echo "<td class='px-6 py-4 whitespace-nowrap'>";
             echo "<button class='bg-blue-500 text-white px-4 py-2 rounded-md editBtn' data-state-id='{$row['id']}' data-state-name='{$row['stateName']}'>Edit</button>";
-            echo "<button class='bg-red-500 text-white px-4 py-2 rounded-md deleteBtn' data-state-id='{$row['id']}'>Delete</button>";
+            echo "<button class='bg-red-500 text-white px-4 py-2 rounded-md deleteBtn' data-delete-id='{$row['id']}'>Delete</button>";
             echo "</td>";
             echo "</tr>";
         }

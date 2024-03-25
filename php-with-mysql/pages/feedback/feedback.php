@@ -32,38 +32,51 @@
                     </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
-                    <?php include './view/fetchFeedback.php'; ?>
+                    <?php include 'fetch_feedback.php'; ?>
                 </tbody>
             </table>
-            <div class="flex justify-end mt-4">
-                <nav class="block">
-                    <ul class="flex pl-0 rounded list-none flex-wrap">
-                        <li><a href="#" class="block hover:text-blue-600 px-3 py-2">Previous</a></li>
-                        <li><a href="#" class="block hover:text-blue-600 px-3 py-2">1</a></li>
-                        <li><a href="#" class="block hover:text-blue-600 px-3 py-2">2</a></li>
-                        <li><a href="#" class="block hover:text-blue-600 px-3 py-2">3</a></li>
-                        <li><a href="#" class="block hover:text-blue-600 px-3 py-2">Next</a></li>
-                    </ul>
-                </nav>
-            </div>
         </div>
     </div>
     <div id="deleteModal" class="modal">
-        <div class="modal-content" style="width: 400px;">
+        <div class="modal-content" style="width: 409px;">
             <div class="flex justify-between">
-                <h2>Delete Confirmation</h2>
-                <span class="close">&times;</span>
+                <h2>Delete City</h2>
+                <span class="close" onclick="closeDeleteModal()">&times;</span>
             </div>
-            <p>Are you sure you want to delete this item?</p>
-            <div class="flex justify-end mt-4">
-                <form id="deleteForm" method="POST" action="./view/delete_city.php">
-                    <input type="hidden" id="deleteCityId" name="cityId" value="">
-                    <button id="confirmDeleteBtn" class="bg-red-500 text-white px-4 py-2 rounded-md mr-2">Confirm</button>
-                    <button id="cancelDeleteBtn" class="bg-gray-300 text-gray-700 px-4 py-2 rounded-md">Cancel</button>
-                </form>
-            </div>
+            <form id="deleteForm" method="POST" action="delete_feedback.php">
+                <p>Are you sure you want to delete this Company?</p>
+                <input type="hidden" id="deleteId" name="deleteId">
+                <div class="flex justify-end">
+                    <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded-md mr-2">Yes</button>
+                    <button type="button" class="bg-gray-500 text-white px-4 py-2 rounded-md" onclick="closeDeleteModal()">No</button>
+                </div>
+            </form>
         </div>
     </div>
+    <script>
+        var deleteBtns = document.querySelectorAll(".deleteBtn");
+        var deleteModal = document.getElementById("deleteModal");
+        var deleteSpan = document.querySelector("#deleteModal .close");
+        deleteBtns.forEach(function(deleteBtn) {
+            deleteBtn.onclick = function() {
+                var cityId = deleteBtn.getAttribute("data-delete-id");
+                confirmDelete(cityId);
+            }
+        });
+
+        function closeDeleteModal() {
+            deleteModal.style.display = "none";
+        }
+
+        function confirmDelete(cityId) {
+            document.getElementById("deleteId").value = cityId;
+            deleteModal.style.display = "block";
+        }
+
+        deleteSpan.onclick = function() {
+            closeDeleteModal();
+        }
+    </script>
 </body>
 
 </html>

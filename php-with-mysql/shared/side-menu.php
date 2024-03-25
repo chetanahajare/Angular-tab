@@ -4,7 +4,7 @@
         <nav>
             <ul class="space-y-2">
                 <li><a href="/pages/city/cities.php" class="block hover:text-gray-300">Cities</a></li>
-                <li><a href="/pages/userTimeAnalysis/userTimeAnalysis.php" class="block hover:text-gray-300">Timer</a></li>
+                <li><a href="/pages/timer/timer.php" class="block hover:text-gray-300">Timer</a></li>
                 <li><a href="/pages/company/company.php" class="block hover:text-gray-300">Company</a></li>
                 <li><a href="/pages/states/states.php" class="block hover:text-gray-300">States</a></li>
                 <li><a href="/pages/distributors/distributors.php" class="block hover:text-gray-300">Distributors</a></li>

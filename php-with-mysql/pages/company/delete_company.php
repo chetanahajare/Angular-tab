@@ -1,26 +1,26 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['deleteCompanyId'])) {
-    // Include database connection
-    include '../../../db/db_connection.php';
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    if (isset($_POST['deleteId'])) {
+        include '../../db/db_connection.php';
+        $deleteId = intval($_POST['deleteId']);
+        $sql = "DELETE FROM company WHERE id=?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("i", $deleteId);
 
-    // Get company ID from the form
-    $companyId = $_POST['deleteCompanyId'];
-
-    // SQL query to delete company
-    $sql = "DELETE FROM company WHERE id=$companyId";
-
-    // Execute the query
-    if ($conn->query($sql) === TRUE) {
-        // Redirect to the company listing page with success message
-        header("Location: /pages/company/view/companies.php?success=Company deleted successfully");
-        exit();
+        if ($stmt->execute()) {
+            header("Location: /pages/company/company.php?success=Company deleted successfully");
+            exit();
+        } else {
+            header("Location: error.php?error=" . urlencode("Error deleting company: " . $stmt->error));
+            exit();
+        }
+        $stmt->close();
+        $conn->close();
     } else {
-        // Redirect to the company listing page with error message
-        header("Location: /pages/company/view/companies.php?error=Error deleting company: " . $conn->error);
+        header("Location: error.php?error=Company ID is missing in the POST data");
         exit();
     }
 } else {
-    // Redirect to error page if accessed directly without POST request or missing parameters
-    header("Location: /error.php");
+    header("Location: error.php?error=Invalid request method");
     exit();
 }

@@ -21,7 +21,7 @@ if ($conn) {
             echo "<td class='px-6 py-4 whitespace-nowrap'>" . $row['image_url'] . "</td>";
             echo "<td class='px-6 py-4 whitespace-nowrap'>";
             echo "<button class='bg-blue-500 text-white px-4 py-2 rounded-md editBtn' data-city-id='{$row['id']}' data-city-name='{$row['city_name']}' data-state-name='{$row['state_name']}' data-image-url='{$row['image_url']}'>Edit</button> ";
-            echo "<button class='bg-red-500 text-white px-4 py-2 rounded-md deleteBtn' data-city-id='{$row['id']}'>Delete</button>";
+            echo "<button class='bg-red-500 text-white px-4 py-2 rounded-md deleteBtn' data-delete-id='{$row['id']}'>Delete</button>";
             echo "</td>";
             echo "</tr>";
         }

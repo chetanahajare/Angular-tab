@@ -19,7 +19,7 @@ if ($conn) {
             echo "<td class='px-6 py-4 whitespace-nowrap'>" . $row['messages'] . "</td>";
             echo "<td class='px-6 py-4 whitespace-nowrap'>" . $row['cityName'] . "</td>";
             echo "<td class='px-6 py-4 whitespace-nowrap'>";
-            echo "<button class='bg-red-500 text-white px-4 py-2 rounded-md deleteBtn' data-id='{$row['id']}' onclick=\"openDeleteModal('{$row['id']}')\">Delete</button>";
+            echo "<button class='bg-red-500 text-white px-4 py-2 rounded-md deleteBtn' data-delete-id='{$row['id']}'>Delete</button>";
             echo "</td>";
             echo "</tr>";
         }

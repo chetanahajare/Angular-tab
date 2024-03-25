@@ -17,16 +17,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit();
         } else {
             error_log("Error updating city: " . $conn->error);
-            header("Location:/pages/cities.php?error=Error updating city: " . $conn->error);
+            header("Location:error.php?error=Error updating city: " . $conn->error);
             exit();
         }
     } else {
         error_log("Missing parameters for city update");
-        header("Location:/pages/cities.php?error=Missing parameters");
+        header("Location:error.php?error=Missing parameters");
         exit();
     }
 } else {
     error_log("Invalid request method");
-    header("Location:/pages/cities.php");
+    header("Location:error.php");
     exit();
 }
