@@ -10,7 +10,7 @@ if (!$conn) {
 mysqli_set_charset($conn, "utf8mb4");
 
 if ($conn) {
-    $sql = "SELECT * FROM states ";
+    $sql = "SELECT * FROM states";
     $result = mysqli_query($conn, $sql);
 
     if ($result && mysqli_num_rows($result) > 0) {

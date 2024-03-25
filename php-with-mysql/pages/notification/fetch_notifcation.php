@@ -16,7 +16,7 @@ if ($conn) {
     if ($result && mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_assoc($result)) {
             echo "<tr>";
-            echo "<td class='px-6 py-4 whitespace-nowrap'>" . $row['message'] . "</td>";
+            echo "<td class='px-6 py-4 whitespace-nowrap'>" . $row['messages'] . "</td>";
             echo "<td class='px-6 py-4 whitespace-nowrap'>" . $row['cityName'] . "</td>";
             echo "<td class='px-6 py-4 whitespace-nowrap'>";
             echo "<button class='bg-red-500 text-white px-4 py-2 rounded-md deleteBtn' data-id='{$row['id']}' onclick=\"openDeleteModal('{$row['id']}')\">Delete</button>";

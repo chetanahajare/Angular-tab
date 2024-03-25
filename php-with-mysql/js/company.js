@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     var addModal = document.getElementById("myModal");
-    var addBtn = document.getElementById("openModal");
-    var addSpan = document.getElementsByClassName("close")[0];
+    var addBtn = document.getElementById("openAddCompanyModal");
+    var addSpan = addModal.querySelector(".close");
 
     addBtn.onclick = function () {
         addModal.style.display = "block";
@@ -11,21 +11,16 @@ document.addEventListener("DOMContentLoaded", function () {
         addModal.style.display = "none";
     }
 
-    var editModal = document.getElementById("editModal");
+    var editModal = document.getElementById("editCompanyModal");
+    var editSpan = editModal.querySelector(".close");
     var editBtns = document.querySelectorAll(".editBtn");
-    var editSpan = document.getElementsByClassName("close")[1];
 
     editBtns.forEach(function (editBtn) {
         editBtn.onclick = function () {
-            var cityId = this.getAttribute('data-city-id');
-            var cityName = this.getAttribute('data-city-name');
-            var stateName = this.getAttribute('data-state-name');
-            var imageUrl = this.getAttribute('data-image-url');
-            document.getElementById("editCityId").value = cityId;
-            document.getElementById("editCityName").value = cityName;
-            document.getElementById("editStateName").value = stateName;
-            document.getElementById("editImageUrl").value = imageUrl;
-
+            var companyId = this.getAttribute('data-company-id');
+            var companyName = this.getAttribute('data-company-name');
+            document.getElementById("editCompanyId").value = companyId;
+            document.getElementById("editCompanyName").value = companyName;
             editModal.style.display = "block";
         }
     });
@@ -33,47 +28,22 @@ document.addEventListener("DOMContentLoaded", function () {
     editSpan.onclick = function () {
         editModal.style.display = "none";
     }
-    var deleteHtml = `
-        <div class="modal-content" style="width: 400px;">
-            <div class="flex justify-between">
-                <h2>Delete Confirmation</h2>
-                <span class="close">&times;</span>
-            </div>
-            <p>Are you sure you want to delete this item?</p>
-            <div class="flex justify-end mt-4">
-                <form id="deleteForm" method="POST" action="./view/delete_city.php">
-                    <input type="hidden" id="deleteCityId" value="">
-                    <button id="confirmDeleteBtn" class="bg-red-500 text-white px-4 py-2 rounded-md mr-2">Confirm</button>
-                    <button id="cancelDeleteBtn" class="bg-gray-300 text-gray-700 px-4 py-2 rounded-md">Cancel</button>
-                </form>
-            </div>
-        </div>
-    `;
+
     var deleteModal = document.getElementById("deleteModal");
-    var deleteBtns = document.querySelectorAll(".deleteBtn");
+    var deleteSpan = deleteModal.querySelector(".close");
     var deleteForm = document.getElementById("deleteForm");
-    deleteModal.innerHTML = deleteHtml;
+    var deleteBtns = document.querySelectorAll(".deleteBtn");
 
     deleteBtns.forEach(function (deleteBtn) {
         deleteBtn.onclick = function () {
-            var cityId = this.getAttribute('data-city-id');
-            console.log("City ID: " + cityId);
-            document.getElementById("deleteCityId").value = cityId;
-            openDeleteModal();
+            var companyId = this.getAttribute('data-company-id');
+            document.getElementById("deleteCompanyId").value = companyId;
+            deleteModal.style.display = "block";
         }
     });
 
-    function openDeleteModal() {
-        deleteModal.style.display = "block";
-        var confirmDeleteBtn = document.getElementById("confirmDeleteBtn");
-        var cancelDeleteBtn = document.getElementById("cancelDeleteBtn");
-        confirmDeleteBtn.onclick = function () {
-            deleteForm.submit();
-            deleteModal.style.display = "none";
-        }
-        cancelDeleteBtn.onclick = function () {
-            deleteModal.style.display = "none";
-        }
+    deleteSpan.onclick = function () {
+        deleteModal.style.display = "none";
     }
 
     window.onclick = function (event) {

@@ -21,7 +21,7 @@
                 <div></div>
                 <div class="flex items-center gap-2">
                     <input type="text" placeholder="Search State" class="border-gray-300 border rounded-md px-4 py-2 mr-2">
-                    <button id="openAddStateModal" class="bg-blue-500 text-white px-4 py-2 rounded-md">Add State</button>
+                    <button id="openModal" class="bg-blue-500 text-white px-4 py-2 rounded-md">Add State</button>
                 </div>
             </div>
             <table class="min-w-full divide-y divide-gray-200">
@@ -36,56 +36,41 @@
                     </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
-                    <?php include './view/fetchStates.php'; ?>
+                    <?php include 'fetch_states.php'; ?>
                 </tbody>
             </table>
-            <div class="flex justify-end mt-4">
-                <nav class="block">
-                    <ul class="flex pl-0 rounded list-none flex-wrap">
-                        <li><a href="#" class="block hover:text-blue-600 px-3 py-2">Previous</a></li>
-                        <li><a href="#" class="block hover:text-blue-600 px-3 py-2">1</a></li>
-                        <li><a href="#" class="block hover:text-blue-600 px-3 py-2">2</a></li>
-                        <li><a href="#" class="block hover:text-blue-600 px-3 py-2">3</a></li>
-                        <li><a href="#" class="block hover:text-blue-600 px-3 py-2">Next</a></li>
-                    </ul>
-                </nav>
-            </div>
         </div>
     </div>
-    <div id="addStateModal" class="modal">
+    <div id="myModal" class="modal">
         <div class="modal-content" style="width: 409px;">
             <div class="flex justify-between">
-                <h2>Add New State</h2>
+                <h2>Add New States</h2>
                 <span class="close">&times;</span>
             </div>
-            <form method="POST" action="add_state.php">
+            <form method="POST" action="save_states.php">
                 <div class="mb-4">
-                    <label for="stateName" class="block text-gray-700 text-sm font-bold mb-2">State Name:</label>
-                    <input type="text" id="stateName" name="stateName" class="border-gray-300 border rounded-md px-4 py-2" value="">
+                    <label for="name" class="block text-gray-700 text-sm font-bold mb-2">States Name:</label>
+                    <input type="text" id="name" name="name" class="border-gray-300 border rounded-md px-4 py-2" value="<?php echo isset($_POST['name']) ? $_POST['name'] : ''; ?>">
                 </div>
-                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md">Save</button>
+                <button type="submit" name="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md">Save</button>
             </form>
         </div>
     </div>
 
-    <div id="editStateModal" class="modal">
-        <div class="modal-content" style="width: 409px;">
-            <div class="flex justify-between">
-                <h2>Edit State</h2>
-                <span class="close">&times;</span>
-            </div>
-            <form method="POST" action="edit_state.php">
-                <div class="mb-4">
-                    <label for="editStateName" class="block text-gray-700 text-sm font-bold mb-2">State Name:</label>
-                    <input type="text" id="editStateName" name="editStateName" class="border-gray-300 border rounded-md px-4 py-2" value="">
-                </div>
-                <input type="hidden" id="editStateId" name="editStateId" value="">
-                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md">Save Changes</button>
-            </form>
-        </div>
-    </div>
-    <?php include '../shared/delete-model.php'; ?>
-    <script src="../js/states.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var addModal = document.getElementById("myModal");
+            var addBtn = document.getElementById("openModal");
+            var addSpan = document.querySelector("#myModal .close");
+            addBtn.onclick = function() {
+                addModal.style.display = "block";
+            }
+
+            addSpan.onclick = function() {
+                addModal.style.display = "none";
+            }
+        });
+    </script>
 </body>
 
 </html>

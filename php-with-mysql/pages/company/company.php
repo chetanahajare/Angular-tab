@@ -19,9 +19,9 @@
             </div>
             <div class="flex justify-between items-center mb-4">
                 <div></div>
-                <div class="flex items-center gap-2">
+                <div class="flex items-center">
                     <input type="text" placeholder="Search Company" class="border-gray-300 border rounded-md px-4 py-2 mr-2">
-                    <button id="openAddCompanyModal" class="bg-blue-500 text-white px-4 py-2 rounded-md">Add Company</button>
+                    <button id="openModal" class="bg-blue-500 text-white px-4 py-2 rounded-md">Add Company</button>
                 </div>
             </div>
             <table class="min-w-full divide-y divide-gray-200">
@@ -36,20 +36,9 @@
                     </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
-                    <?php include './view/fetch_company.php'; ?>
+                    <?php include 'fetch_company.php'; ?>
                 </tbody>
             </table>
-            <div class="flex justify-end mt-4">
-                <nav class="block">
-                    <ul class="flex pl-0 rounded list-none flex-wrap">
-                        <li><a href="#" class="block hover:text-blue-600 px-3 py-2">Previous</a></li>
-                        <li><a href="#" class="block hover:text-blue-600 px-3 py-2">1</a></li>
-                        <li><a href="#" class="block hover:text-blue-600 px-3 py-2">2</a></li>
-                        <li><a href="#" class="block hover:text-blue-600 px-3 py-2">3</a></li>
-                        <li><a href="#" class="block hover:text-blue-600 px-3 py-2">Next</a></li>
-                    </ul>
-                </nav>
-            </div>
         </div>
     </div>
 
@@ -59,47 +48,31 @@
                 <h2>Add New Company</h2>
                 <span class="close">&times;</span>
             </div>
-            <form id="addCompanyForm" method="POST" action="./view/save_compnay.php">
+            <form method="POST" action="save_company.php">
                 <div class="mb-4">
-                    <label for="companyName" class="block text-gray-700 text-sm font-bold mb-2">Company Name:</label>
-                    <input type="text" id="companyName" name="companyName" class="border-gray-300 border rounded-md px-4 py-2" value="">
+                    <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Company Name:</label>
+                    <input type="text" id="name" name="name" class="border-gray-300 border rounded-md px-4 py-2" value="<?php echo isset($_POST['name']) ? $_POST['name'] : ''; ?>">
                 </div>
-                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md">Save</button>
+                <button type="submit" name="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md">Save</button>
             </form>
         </div>
     </div>
-    <div id="myModal" class="modal">
-        <div class="modal-content" style="width: 409px;">
-            <div class="flex justify-between">
-                <h2>Add New Company</h2>
-                <span class="close">&times;</span>
-            </div>
-            <form method="POST" action="./view/save_compnay.php">
-                <div class="mb-4">
-                    <label for="cityName" class="block text-gray-700 text-sm font-bold mb-2">Company Name:</label>
-                    <input type="text" id="companyName" name="cityName" class="border-gray-300 border rounded-md px-4 py-2" value="<?php echo isset($_POST['cityName']) ? $_POST['cityName'] : ''; ?>">
-                </div>
-                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md">Save</button>
-            </form>
-        </div>
-    </div>
-    <div id="editCompanyModal" class="modal">
-        <div class="modal-content" style="width: 409px;">
-            <div class="flex justify-between">
-                <h2>Edit Company</h2>
-                <span class="close">&times;</span>
-            </div>
-            <form id="editCompanyForm" method="POST" action="edit_company.php">
-                <input type="hidden" id="editCompanyId" name="editCompanyId">
-                <div class="mb-4">
-                    <label for="editCompanyName" class="block text-gray-700 text-sm font-bold mb-2">Company Name:</label>
-                    <input type="text" id="editCompanyName" name="editCompanyName" class="border-gray-300 border rounded-md px-4 py-2" value="">
-                </div>
-                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md">Save Changes</button>
-            </form>
-        </div>
-    </div>
-    <script src="../../js/company.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var addModal = document.getElementById("myModal");
+            var addBtn = document.getElementById("openModal");
+            var addSpan = document.querySelector("#myModal .close");
+            addBtn.onclick = function() {
+                addModal.style.display = "block";
+            }
+
+            addSpan.onclick = function() {
+                addModal.style.display = "none";
+            }
+        });
+    </script>
+
 </body>
 
 </html>

@@ -8,7 +8,7 @@
                 <li><a href="/pages/company/company.php" class="block hover:text-gray-300">Company</a></li>
                 <li><a href="/pages/states/states.php" class="block hover:text-gray-300">States</a></li>
                 <li><a href="/pages/distributors/distributors.php" class="block hover:text-gray-300">Distributors</a></li>
-                <li><a href="/pages/company.php" class="block hover:text-gray-300">Products</a></li>
+                <li><a href="/pages/product/product.php" class="block hover:text-gray-300">Products</a></li>
                 <li><a href="/pages/company.php" class="block hover:text-gray-300">Users</a></li>
                 <li><a href="/pages/company.php" class="block hover:text-gray-300">Feed</a></li>
             </ul>
