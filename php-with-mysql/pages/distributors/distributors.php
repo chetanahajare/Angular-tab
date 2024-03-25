@@ -76,7 +76,7 @@
                 </div>
                 <div class="mb-4">
                     <label for="companyName" class="block text-gray-700 text-sm font-bold mb-2">Company:</label>
-                    <input type="text" id="companyName" name="companyName" class="border-gray-300 border rounded-md px-4 py-2" value="<?php echo isset($_POST['companyName']) ? $_POST['companyName'] : ''; ?>">
+                    <input type="text" id="companyName" name="company" class="border-gray-300 border rounded-md px-4 py-2" value="<?php echo isset($_POST['companyName']) ? $_POST['companyName'] : ''; ?>">
                 </div>
                 <div class="mb-4">
                     <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email:</label>
