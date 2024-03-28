@@ -1,9 +1,7 @@
 <?php
 include '../../db/db_connection.php';
 
-// Check if form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Retrieve form data
     $distributorName = $_POST['distributorName'];
     $company = $_POST['company'];
     $email = $_POST['email'];
@@ -17,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bind_param("ssssssss", $distributorName, $company, $email, $phone_no_1, $phone_no_2, $city, $province, $distributorsAddress);
 
     if ($stmt->execute()) {
-        header("Location: success.php");
+        header("Location: /pages/distributors/distributors.php?success=distributors added successfully");
         exit();
     } else {
         header("Location: error.php");

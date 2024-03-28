@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 25, 2024 at 10:12 PM
+-- Generation Time: Mar 25, 2024 at 10:57 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -124,8 +124,8 @@ CREATE TABLE `distributors` (
 --
 
 INSERT INTO `distributors` (`id`, `distributorsName`, `company`, `email`, `phone_no_1`, `phone_no_2`, `city`, `province`, `distributorsAddress`) VALUES
-(1, 'sdfghaSDFGHJKHGFDS', 'asdfgh', 'asdfgh@gmail.com', 'asdfghj', 'aSDFGHJ', 'ASDFGH', 'ASDFGH', 'asdfg'),
-(2, 'asdfghjk', 'asdfghjk', 'asdfghjk#$$@gmao.com', 'sadfghj', 'asdfghj', 'asedrfghj', 'sadfghj', 'SDfg');
+(3, 'omkar', 'ASDFGHJ', 'ASDFGH@GMAIL.COM', 'ASDFGHJ', 'Asdfghj', 'asdfghj', 'asdfghjk', 'asdfghj'),
+(4, 'sdfgh', 'aSDFGH', 'ERTGH@gmai.com', 'QWERFG', 'QWAESRDFGH', 'ASDFG', 'asdfg', 'asdfg');
 
 -- --------------------------------------------------------
 
@@ -205,7 +205,7 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `ProductName`, `Company`, `SideEffects`, `MRP`, `Composition`, `Package`, `Substitute`) VALUES
-(1, 'Product A', 'Company X', 'No side effects reported', 25.50, 'Composition A', '10 tablets per pack', 'Substitute X'),
+(1, 'Product', 'Company ', 'No side effects reported', 25.50, 'Composition A', '10 tablets per pack', 'Substitute X'),
 (2, 'Product B', 'Company Y', 'May cause drowsiness', 30.00, 'Composition B', '20 capsules per pack', 'Substitute Y'),
 (3, 'Product C', 'Company Z', NULL, 15.75, 'Composition C', '30 tablets per pack', 'Substitute Z'),
 (4, 'Product D', 'Company X', 'No known side effects', 12.99, 'Composition D', '50 tablets per pack', 'Substitute X'),
@@ -214,7 +214,8 @@ INSERT INTO `products` (`id`, `ProductName`, `Company`, `SideEffects`, `MRP`, `C
 (7, 'Product G', 'Company X', 'May cause dizziness', 40.75, 'Composition G', '10 capsules per pack', 'Substitute X'),
 (8, 'Product H', 'Company Y', NULL, 22.00, 'Composition H', '20 tablets per pack', 'Substitute Y'),
 (9, 'Product I', 'Company Z', 'May cause stomach upset', 35.50, 'Composition I', '5 vials per pack', 'Substitute Z'),
-(10, 'Product J', 'Company X', 'No side effects reported', 50.00, 'Composition J', '100 tablets per pack', 'Substitute X');
+(10, 'Product J', 'Company X', 'No side effects reported', 50.00, 'Composition J', '100 tablets per pack', 'Substitute X'),
+(11, 'asdfgh', 'asdfgh', 'asdfgh', 0.00, 'asdfgh', 'aSDFGH', 'ASDFG');
 
 -- --------------------------------------------------------
 
@@ -357,7 +358,7 @@ ALTER TABLE `company`
 -- AUTO_INCREMENT for table `distributors`
 --
 ALTER TABLE `distributors`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `feedback`
@@ -375,7 +376,7 @@ ALTER TABLE `notifications`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `states`

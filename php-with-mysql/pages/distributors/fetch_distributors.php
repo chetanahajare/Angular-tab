@@ -48,7 +48,7 @@ if ($conn) {
             echo "<td class='px-6 py-4 whitespace-nowrap'>" . $row['distributorsAddress'] . "</td>";
             echo "<td class='px-6 py-4 whitespace-nowrap'>";
             echo "<button class='bg-blue-500 text-white px-4 py-2 rounded-md editBtn' data-id='{$row['id']}' data-name='{$row['distributorsName']}' data-company='{$row['company']}' data-email='{$row['email']}' data-phone1='{$row['phone_no_1']}' data-phone2='{$row['phone_no_2']}' data-city='{$row['city']}' data-province='{$row['province']}' data-address='{$row['distributorsAddress']}'>Edit</button> ";
-            echo "<button class='bg-red-500 text-white px-4 py-2 rounded-md deleteBtn' data-id='{$row['id']}'>Delete</button>";
+            echo "<button class='bg-red-500 text-white px-4 py-2 rounded-md deleteBtn' data-delete-id='{$row['id']}'>Delete</button>";
             echo "</td>";
             echo "</tr>";
         }

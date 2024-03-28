@@ -1,25 +1,25 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_POST['productId'])) {
-        include '../../../db/db_connection.php';
-        $productId = $_POST['productId'];
-        $sql = "DELETE FROM products WHERE id=?";
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    if (isset($_POST['deleteId'])) {
+        include '../../db/db_connection.php';
+        $deleteId = intval($_POST['deleteId']);
+        $sql = "DELETE FROM distributors WHERE id=?";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("i", $productId);
+        $stmt->bind_param("i", $deleteId);
         if ($stmt->execute()) {
-            echo "Product deleted successfully.";
+            header("Location: /pages/product/product.php?success=City deleted successfully");
             exit();
         } else {
-            echo "Error deleting product: " . $stmt->error;
+            header("Location: error.php?error=" . urlencode("Error deleting city: " . $stmt->error));
             exit();
         }
+        $stmt->close();
+        $conn->close();
     } else {
-        echo "Product ID is missing in the POST data.";
+        header("Location: error.php?error=City ID is missing in the POST data");
         exit();
     }
 } else {
-    // Request method is not POST
-    echo "Invalid request method.";
+    header("Location: error.php?error=Invalid request method");
     exit();
 }
-?>

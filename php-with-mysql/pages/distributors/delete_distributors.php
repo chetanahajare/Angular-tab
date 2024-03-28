@@ -1,24 +1,25 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_POST['distributorsId'])) {
-        include '../../../db/db_connection.php';
-        $cityId = $_POST['distributorsId'];
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    if (isset($_POST['deleteId'])) {
+        include '../../db/db_connection.php';
+        $deleteId = intval($_POST['deleteId']);
         $sql = "DELETE FROM distributors WHERE id=?";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("i",$distributorsId);
-        if ($stmt->execute()) { 
-            echo "distributors deleted successfully.";
+        $stmt->bind_param("i", $deleteId);
+        if ($stmt->execute()) {
+            header("Location: /pages/distributors/distributors.php?success=City deleted successfully");
             exit();
         } else {
-            echo "Error deleting city: " . $stmt->error;
+            header("Location: error.php?error=" . urlencode("Error deleting city: " . $stmt->error));
             exit();
         }
+        $stmt->close();
+        $conn->close();
     } else {
-        echo "City ID is missing in the POST data." . $distributorsId;
+        header("Location: error.php?error=City ID is missing in the POST data");
         exit();
     }
 } else {
-    // Request method is not POST
-    echo "Invalid request method.";
+    header("Location: error.php?error=Invalid request method");
     exit();
 }

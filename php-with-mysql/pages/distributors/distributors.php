@@ -70,7 +70,6 @@
             </form>
         </div>
     </div>
-
     <div id="editModal" class="modal">
         <div class="modal-content" style="width: 409px;">
             <div class="flex justify-between">
@@ -115,9 +114,22 @@
             </form>
         </div>
     </div>
-
-
-
+    <div id="deleteModal" class="modal">
+        <div class="modal-content" style="width: 409px;">
+            <div class="flex justify-between">
+                <h2>Delete City</h2>
+                <span class="close" onclick="closeDeleteModal()">&times;</span>
+            </div>
+            <form id="deleteForm" method="POST" action="delete_distributors.php">
+                <p>Are you sure you want to delete this city?</p>
+                <input type="hidden" id="deleteId" name="deleteId">
+                <div class="flex justify-end">
+                    <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded-md mr-2">Yes</button>
+                    <button type="button" class="bg-gray-500 text-white px-4 py-2 rounded-md" onclick="closeDeleteModal()">No</button>
+                </div>
+            </form>
+        </div>
+    </div>
     <script>
         function closeEditModal() {
             var editModal = document.getElementById("editModal");
@@ -160,9 +172,8 @@
             };
         });
     </script>
-
     <script src='../../assets/js/addData.js'></script>
-    <!-- <script src='../../assets/js/deleteData.js'></script> -->
+    <script src='../../assets/js/deleteData.js'></script>
 </body>
 
 </html>

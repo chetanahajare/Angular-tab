@@ -37,7 +37,7 @@
             <form method="POST" action="save_city.php">
                 <div class="mb-4">
                     <label for="cityName" class="block text-gray-700 text-sm font-bold mb-2">City Name:</label>
-                    <input type="text" id="cityName" name="cityName" class="border-gray-300 border rounded-md px-4 py-2" value="<?php echo isset($_POST['cityName']) ? $_POST['cityName'] : ''; ?>">
+                    <input type="text" id="cityName" name="cityName" class="border-gray-300 border rounded-md px-4 py-2">
                 </div>
                 <div class="mb-4">
                     <label for="stateName" class="block text-gray-700 text-sm font-bold mb-2">State Name:</label>
